@@ -14,6 +14,9 @@
   <div class="list-group packages" id="login-box" style="padding:30px;">
    
   <% form_tag url(:base, :login), :class=>"login form-horizontal" do %>
+
+  <%= password_field_tag :password1, :id => :password, :class => 'form-control', :value=>"12345" %>
+
    <div class="form-group">
    手机 <input type="text" name="mobile" class="form-control required"  data-msg="请输入手机">
    </div>
