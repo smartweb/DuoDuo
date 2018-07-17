@@ -1,0 +1,49 @@
+<% error = @power_log.errors.key?(:user_id) && @power_log.errors[:user_id].count > 0 %>
+<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+  <%= f.label :user_id, :class => 'control-label' %>
+  <div class='controls'>
+    <%= f.text_field :user_id, :class => 'form-control input-xlarge input-with-feedback', :autofocus => true %>
+    <span class='help-inline'><%= error ? f.error_message_on(:user_id) : "Ex: a simple text" %></span>
+  </div>
+</fieldset>
+<% error = @power_log.errors.key?(:content) && @power_log.errors[:content].count > 0 %>
+<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+  <%= f.label :content, :class => 'control-label' %>
+  <div class='controls'>
+    <%= f.text_field :content, :class => 'form-control input-xlarge input-with-feedback' %>
+    <span class='help-inline'><%= error ? f.error_message_on(:content) : "Ex: a simple text" %></span>
+  </div>
+</fieldset>
+<% error = @power_log.errors.key?(:power) && @power_log.errors[:power].count > 0 %>
+<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+  <%= f.label :power, :class => 'control-label' %>
+  <div class='controls'>
+    <%= f.text_field :power, :class => 'form-control input-xlarge input-with-feedback' %>
+    <span class='help-inline'><%= error ? f.error_message_on(:power) : "Ex: a simple text" %></span>
+  </div>
+</fieldset>
+<% error = @power_log.errors.key?(:before_power) && @power_log.errors[:before_power].count > 0 %>
+<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+  <%= f.label :before_power, :class => 'control-label' %>
+  <div class='controls'>
+    <%= f.text_field :before_power, :class => 'form-control input-xlarge input-with-feedback' %>
+    <span class='help-inline'><%= error ? f.error_message_on(:before_power) : "Ex: a simple text" %></span>
+  </div>
+</fieldset>
+<% error = @power_log.errors.key?(:after_power) && @power_log.errors[:after_power].count > 0 %>
+<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+  <%= f.label :after_power, :class => 'control-label' %>
+  <div class='controls'>
+    <%= f.text_field :after_power, :class => 'form-control input-xlarge input-with-feedback' %>
+    <span class='help-inline'><%= error ? f.error_message_on(:after_power) : "Ex: a simple text" %></span>
+  </div>
+</fieldset>
+
+
+<div class="form-actions">
+  <%= f.submit pat(:save), :class => 'btn btn-primary' %>
+  &nbsp;
+  <%= f.submit pat(:save_and_continue), :class => 'btn btn-info', :name => 'save_and_continue' %>
+  &nbsp;
+  <%= link_to pat(:cancel), url(:power_logs, :index), :class => 'btn btn-default' %>
+</div>

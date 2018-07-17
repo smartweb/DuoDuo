@@ -1,0 +1,10 @@
+<ul class="nav nav-tabs">
+  <li> <%= link_to tag_icon(:list, pat(:list)), url(:power_logs, :index) %></li>
+  <li> <%= link_to tag_icon(:plus, pat(:new)), url(:power_logs, :new) %></li>
+  <li class="active"> <%= link_to tag_icon(:edit, pat(:edit)), url(:power_logs, :edit, :id => @power_log.id) %></li>
+</ul>
+<div class="tabs-content">
+  <% form_for :power_log, url(:power_logs, :update, :id => @power_log.id), :method => :put, :class => 'form-horizontal' do |f| %>
+    <%= partial 'power_logs/form', :locals => { :f => f } %>
+  <% end %>
+</div>

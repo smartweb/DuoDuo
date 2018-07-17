@@ -1,0 +1,96 @@
+
+    <style>
+
+    .btn-title {font-size: 18px; font-weight: bold;}
+    
+    .token {background-color: #5cb85c}
+    .power {background-color: #f0ad4e}
+    </style>
+
+   <div class="container">
+   
+   <div class="list-group packages" id="login-box">
+
+   
+   <% if current_account %>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        欢迎你，<%=current_account.name%><br> 
+        多多豆 <span class="label token"><%=current_account.token.to_i%></span>
+        原力 <span class="label power"><%=current_account.power.to_f%></span>
+           
+        <br>
+      
+        </div>
+    </div>
+  <% end %>
+  </div>
+
+
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <a href="/power">
+          <div class="col-xs-6 col-md-6 text-center" 
+          style="border: 1px solid #ECECEC;
+          border-style:none solid none none; 
+          ">
+          <span class="glyphicon glyphicon-leaf" aria-hidden="true"></span>
+
+          <span class="btn-title">
+          提升原力</span><br>
+          <small>签到、完善资料</small>
+          <br>
+          </div>
+        </a>
+
+        <a href="/about">
+          <div class="col-xs-6 col-md-6 text-center">
+            <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+
+            <span class="btn-title">
+            驾享链介绍
+            </span>
+            <br>
+            常见问题
+          </div>
+        </a>
+      </div>
+    </div>
+
+
+   <h3><span class="glyphicon glyphicon-flash" aria-hidden="true"></span>
+   多多豆排行榜</h3>
+    <div class="list-group packages" id="common-packages">
+
+    <ul class="list-group">
+    <% @token_users.each_with_index do |user, index| %>
+       <li class="list-group-item">
+          <%=index + 1%>. 
+          <label><%=user.mobile_mark%></label>
+          <span class="badge token"><%=user.token.to_f%></span>
+               
+          </li>
+    <% end %>
+    </ul>
+
+   <h3><span class="glyphicon glyphicon-leaf" aria-hidden="true"></span>
+   原力排行榜</h3>
+    <div class="list-group packages" id="common-packages">
+
+    <ul class="list-group">
+    <% @power_users.each_with_index do |user, index| %>
+       <li class="list-group-item">
+          <%=index + 1%>. 
+          <label ><%=user.mobile_mark%></label>
+          
+          <span class="badge power"><%=user.power.to_f%></span>
+       </li>
+    <% end %>
+    </ul>
+
+    <br>
+    <% if current_account %>
+      <a href="/logout" class="btn btn-default">退出</a>
+    <% end %>
+
+   </div>

@@ -1,0 +1,65 @@
+<% error = @user.errors.key?(:mobile) && @user.errors[:mobile].count > 0 %>
+<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+  <%= f.label :mobile, :class => 'control-label' %>
+  <div class='controls'>
+    <%= f.text_field :mobile, :class => 'form-control input-xlarge input-with-feedback', :autofocus => true %>
+    <span class='help-inline'><%= error ? f.error_message_on(:mobile) : "Ex: a simple text" %></span>
+  </div>
+</fieldset>
+<% error = @user.errors.key?(:crypted_password) && @user.errors[:crypted_password].count > 0 %>
+<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+  <%= f.label :crypted_password, :class => 'control-label' %>
+  <div class='controls'>
+    <%= f.text_field :crypted_password, :class => 'form-control input-xlarge input-with-feedback' %>
+    <span class='help-inline'><%= error ? f.error_message_on(:crypted_password) : "Ex: a simple text" %></span>
+  </div>
+</fieldset>
+<% error = @user.errors.key?(:name) && @user.errors[:name].count > 0 %>
+<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+  <%= f.label :name, :class => 'control-label' %>
+  <div class='controls'>
+    <%= f.text_field :name, :class => 'form-control input-xlarge input-with-feedback' %>
+    <span class='help-inline'><%= error ? f.error_message_on(:name) : "Ex: a simple text" %></span>
+  </div>
+</fieldset>
+<% error = @user.errors.key?(:token) && @user.errors[:token].count > 0 %>
+<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+  <%= f.label :token, :class => 'control-label' %>
+  <div class='controls'>
+    <%= f.text_field :token, :class => 'form-control input-xlarge input-with-feedback' %>
+    <span class='help-inline'><%= error ? f.error_message_on(:token) : "Ex: a simple text" %></span>
+  </div>
+</fieldset>
+<% error = @user.errors.key?(:power) && @user.errors[:power].count > 0 %>
+<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+  <%= f.label :power, :class => 'control-label' %>
+  <div class='controls'>
+    <%= f.text_field :power, :class => 'form-control input-xlarge input-with-feedback' %>
+    <span class='help-inline'><%= error ? f.error_message_on(:power) : "Ex: a simple text" %></span>
+  </div>
+</fieldset>
+<% error = @user.errors.key?(:snap_token) && @user.errors[:snap_token].count > 0 %>
+<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+  <%= f.label :snap_token, :class => 'control-label' %>
+  <div class='controls'>
+    <%= f.text_field :snap_token, :class => 'form-control input-xlarge input-with-feedback' %>
+    <span class='help-inline'><%= error ? f.error_message_on(:snap_token) : "Ex: a simple text" %></span>
+  </div>
+</fieldset>
+<% error = @user.errors.key?(:snap_power) && @user.errors[:snap_power].count > 0 %>
+<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+  <%= f.label :snap_power, :class => 'control-label' %>
+  <div class='controls'>
+    <%= f.text_field :snap_power, :class => 'form-control input-xlarge input-with-feedback' %>
+    <span class='help-inline'><%= error ? f.error_message_on(:snap_power) : "Ex: a simple text" %></span>
+  </div>
+</fieldset>
+
+
+<div class="form-actions">
+  <%= f.submit pat(:save), :class => 'btn btn-primary' %>
+  &nbsp;
+  <%= f.submit pat(:save_and_continue), :class => 'btn btn-info', :name => 'save_and_continue' %>
+  &nbsp;
+  <%= link_to pat(:cancel), url(:users, :index), :class => 'btn btn-default' %>
+</div>

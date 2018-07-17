@@ -1,0 +1,49 @@
+<% error = @mine_log.errors.key?(:total_token) && @mine_log.errors[:total_token].count > 0 %>
+<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+  <%= f.label :total_token, :class => 'control-label' %>
+  <div class='controls'>
+    <%= f.text_field :total_token, :class => 'form-control input-xlarge input-with-feedback', :autofocus => true %>
+    <span class='help-inline'><%= error ? f.error_message_on(:total_token) : "Ex: a simple text" %></span>
+  </div>
+</fieldset>
+<% error = @mine_log.errors.key?(:total_power) && @mine_log.errors[:total_power].count > 0 %>
+<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+  <%= f.label :total_power, :class => 'control-label' %>
+  <div class='controls'>
+    <%= f.text_field :total_power, :class => 'form-control input-xlarge input-with-feedback' %>
+    <span class='help-inline'><%= error ? f.error_message_on(:total_power) : "Ex: a simple text" %></span>
+  </div>
+</fieldset>
+<% error = @mine_log.errors.key?(:user_count) && @mine_log.errors[:user_count].count > 0 %>
+<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+  <%= f.label :user_count, :class => 'control-label' %>
+  <div class='controls'>
+    <%= f.text_field :user_count, :class => 'form-control input-xlarge input-with-feedback' %>
+    <span class='help-inline'><%= error ? f.error_message_on(:user_count) : "Ex: a simple text" %></span>
+  </div>
+</fieldset>
+<% error = @mine_log.errors.key?(:unit_token) && @mine_log.errors[:unit_token].count > 0 %>
+<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+  <%= f.label :unit_token, :class => 'control-label' %>
+  <div class='controls'>
+    <%= f.text_field :unit_token, :class => 'form-control input-xlarge input-with-feedback' %>
+    <span class='help-inline'><%= error ? f.error_message_on(:unit_token) : "Ex: a simple text" %></span>
+  </div>
+</fieldset>
+<% error = @mine_log.errors.key?(:mine_count) && @mine_log.errors[:mine_count].count > 0 %>
+<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+  <%= f.label :mine_count, :class => 'control-label' %>
+  <div class='controls'>
+    <%= f.text_field :mine_count, :class => 'form-control input-xlarge input-with-feedback' %>
+    <span class='help-inline'><%= error ? f.error_message_on(:mine_count) : "Ex: a simple text" %></span>
+  </div>
+</fieldset>
+
+
+<div class="form-actions">
+  <%= f.submit pat(:save), :class => 'btn btn-primary' %>
+  &nbsp;
+  <%= f.submit pat(:save_and_continue), :class => 'btn btn-info', :name => 'save_and_continue' %>
+  &nbsp;
+  <%= link_to pat(:cancel), url(:mine_logs, :index), :class => 'btn btn-default' %>
+</div>

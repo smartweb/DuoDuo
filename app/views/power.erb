@@ -1,0 +1,97 @@
+ <style>
+ 	.number{font-size: 30px; font-weight: bold; color: #5cb85c;}
+ </style>
+
+   <div class="container">
+   
+   <ol class="breadcrumb">
+      <li><a href="/">首页</a></li>
+      <li class="active">提升原力</li>
+  </ol>
+  
+   <div class="page-header">
+    <h3>提升原力 </h3>
+  </div>
+
+  	<div class="panel panel-default">
+      <div class="panel-body">
+      	  <div class="col-xs-6 col-md-6 text-center">
+       	  <span class="number">
+       	  <%=current_account ? current_account.power.to_f : 0%></span>
+       	  <br>
+       	  我当前的原力
+       	  </div>
+
+       	  <div class="col-xs-6 col-md-6 text-center">
+       	  	<span class="number">
+
+       	  	<%=current_account ? current_account.power_position : 0%>
+       	  	</span>
+       	  	<br>
+       	  	我的原力排名
+       	  </div>
+      </div>
+    </div>
+
+	<div class="panel panel-default">
+      <div class="panel-body">
+      	  <div class="col-xs-8 col-md-4">
+       	  <label>每日签到</label>
+       	  <br>
+       	  每日签到 +10 原力
+       	  </div>
+
+       	  <div class="text-right">
+       	  <% if current_account && current_account.checkin? %>
+       	  	<a href="#" class="btn btn-success disabled" role="button">已完成</a>
+       	  <% else %>
+            <a href="/checkin" class="btn btn-success">马上签到</a>
+          <% end %>
+
+
+       	  </div>
+      </div>
+
+      <div class="panel-body">
+      	  <div class="col-xs-8 col-md-4">
+       	  	<label>邀请好友注册</label>
+       	  	<br>
+       	  	注册成功 +200 原力
+       	  </div>
+
+       	  <div class="text-right">
+       	  	<a href="/invite" class="btn btn-success">马上邀请</a>
+       	  </div>
+      </div>
+
+      <div class="panel-body">
+      	  <div class="col-xs-8 col-md-4">
+       	  	<label>填写购车意向信息</label>
+       	  	<br>
+       	  	填写成功 +300 原力
+       	  </div>
+
+          <div class="text-right">
+          <% if current_account && current_account.modify? %>
+       	    
+       	  	 <a href="/modify" class="btn btn-success disabled">已填写</a>
+       	    
+          <% else %>
+              <a href="/modify" class="btn btn-success">马上完善</a>
+          <% end %>
+          </div>
+      </div>
+    </div>
+
+  <blockquote>
+  <p>原力是多多豆(DDD)的获取能力，同一时间段内，原力越高，每次挖矿分得的多多豆(DDD)就越多。<br>
+   每个用户的初始原力是50，通过其他行为可以提升原力。</p>
+</blockquote>
+   
+
+
+
+
+  </div>
+
+   </div>

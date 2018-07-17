@@ -1,0 +1,125 @@
+   <div class="container">
+   
+   <ol class="breadcrumb">
+      <li><a href="/">首页</a></li>
+      <li><a href="/power">提升原力</a></li>
+      <li class="active">完善资料</li>
+  </ol>
+  
+   <div class="page-header">
+    <h3>完善资料 <small>填写购车意向信息</small></h3>
+  </div>
+
+   
+
+   <div class="list-group packages" id="login-box" style="padding:30px;">
+   
+
+   <% form_tag url(:base, :modify), :class=>"login form-horizontal" do %>
+
+   <div class="form-group">
+  
+   </div>
+
+   <div class="form-group">
+   
+   <label class="col-sm-2 control-label">性别 </label>
+   <div class="col-sm-10">
+    <label class="radio-inline">
+    <input type="radio"  name="sex"
+    value="1"> 男
+    </label>
+    <label class="radio-inline">
+      <input type="radio"  name="sex" value="0"> 女
+    </label>
+    </div>
+   </div>
+
+  <div class="form-group">
+    <label class="col-sm-2 control-label">年龄 </label>
+    <div class="col-sm-10"> 
+      <input type="text" class="form-control required" name="age" value="" data-msg="请输入年龄">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-2 control-label">城市 </label>
+    <div class="col-sm-10"> 
+      <input type="text" class="form-control required" name="city" value="" data-msg="请输入城市">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-2 control-label">婚姻状况 </label>
+    <div class="col-sm-10"> 
+      <label class="radio-inline"> 
+        <input type="radio"  name="marry" value="1"> 已婚
+      </label>
+      <label class="radio-inline">
+        <input type="radio"  name="marry" value="0" checked > 未婚
+      </label>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-2 control-label">年收入 </label>
+    <div class="col-sm-10"> 
+      <select name="salary" class="form-control required" data-msg="请选择收入范围">
+        <option>请选择</option>
+        <option value="2">5-10万</option>
+        <option value="3">10-20万</option>
+        <option value="4">20-50万</option>
+        <option value="5">50万以上</option>
+        <option value="1">5万以下</option>
+      </select>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-2 control-label">什么时候想买车 </label>
+    <div class="col-sm-10"> 
+     
+     <select name="when" class="form-control required" data-msg="请选择什么时候想买车">
+        <option>请选择</option>
+        <option value="1">3个月内</option>
+        <option value="2">半年内</option>
+        <option value="3">一年内</option>
+        <option value="4">2-3年</option>
+        <option value="5">暂时不想买</option>
+      </select>
+
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-2 control-label">心仪的汽车品牌 </label>
+    <div class="col-sm-10 "> 
+      <input type="text" class="form-control required" name="brand" value="" data-msg="请输入品牌名称">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-sm-2 control-label">预算 </label>
+    <div class="col-sm-10"> 
+      <select name="budget" class="form-control required" data-msg="请选择购车预算">
+        <option>请选择</option>
+        <option value="2">5-10万</option>
+        <option value="3">10-20万</option>
+        <option value="4">20-50万</option>
+        <option value="5">50万以上</option>
+        <option value="1">5万以下</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-sm-2 control-label"></label>
+    <div class="col-sm-10"> 
+      <input type="submit" class="btn btn-success" value="保存"> 
+    </div>
+  </div>
+
+   <% end %>
+
+
+   <script>
+      $("form").validate();
+    </script>
+  </div>
+
+   </div>

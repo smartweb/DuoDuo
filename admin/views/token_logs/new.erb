@@ -1,0 +1,9 @@
+<ul class="nav nav-tabs">
+  <li> <%= link_to tag_icon(:list, pat(:list)), url(:token_logs, :index) %></li>
+  <li class="active"> <%= link_to tag_icon(:plus, pat(:new)), url(:token_logs, :new) %></li>
+</ul>
+<div class="tabs-content">
+  <% form_for :token_log, url(:token_logs, :create), :class => 'form-horizontal' do |f| %>
+    <%= partial 'token_logs/form', :locals => { :f => f } %>
+ <% end %>
+</div>

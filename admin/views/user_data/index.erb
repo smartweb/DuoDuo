@@ -1,0 +1,93 @@
+<ul class="nav nav-tabs">
+  <li class=active> <%= link_to tag_icon(:list, pat(:list)), url(:user_data, :index) %></li>
+  <li> <%= link_to tag_icon(:plus, pat(:new)), url(:user_data, :new) %></li>
+</ul>
+<div class=tabs-content>
+  <table id=list class="table table-striped table-hover table-condensed">
+    <thead>
+      <tr>
+        <th class="header list-menu">
+          <div class=dropdown>
+            <a href="#" class="list-menu-toggle dropdown-toggle" data-toggle='dropdown'>
+              <%= tag_icon :magic %> <span class=caret></span>
+            </a>
+            <ul class="list-menu dropdown-menu" role=menu>
+              <li class=list-menu-wrapper>
+                <%= link_to tag_icon('check-square-o', pat(:select_all)), '#', :id => 'select-all', :class => 'list-menu-link' %>
+              </li>
+              <li class=list-menu-wrapper.list-menu-wrapper-disabled>
+                <%= link_to tag_icon('square-o', pat(:deselect_all)), '#', :id => 'deselect-all', :class => 'list-menu-link list-menu-link-disabled' %>
+              </li>
+              <li class="list-menu-divider divider"></li>
+              <li class=list-menu-wrapper.list-menu-wrapper-disabled>
+                <%=link_to tag_icon('trash-o', pat(:delete_selected)), '#', :id => 'delete-selected', :class => 'list-menu-link list-menu-link-disabled' %>
+                <div class='list-menu-popover-delete-selected popover right'>
+                  <div class=arrow></div>
+                  <h3 class=popover-title><%= pat(:delete_selected_title) %></h3>
+                  <div class=popover-content>
+                    <% form_tag url(:user_data, :destroy_many), :method => :delete do %>
+                      <%=hidden_field_tag :user_datum_ids, :'data-delete-many-ids' => true %>
+                      <%=submit_tag pat(:delete), :class =>'list-menu-popover-delete-selected-btn btn btn-danger btn-small' %>
+                      <div class='btn btn-default btn-small cancel'><%= pat(:cancel) %></div>
+                    <% end %>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </th>
+                <th class=header> <%= mat(:user_datum, :id) %></th>
+                <th class=header> <%= mat(:user_datum, :user_id) %></th>
+                <th class=header> <%= mat(:user_datum, :hash_id) %></th>
+                <th class=header> <%= mat(:user_datum, :sex) %></th>
+                <th class=header> <%= mat(:user_datum, :age) %></th>
+                <th class=header> <%= mat(:user_datum, :city) %></th>
+                <th class=header> <%= mat(:user_datum, :marry) %></th>
+                <th class=header> <%= mat(:user_datum, :salary) %></th>
+                <th class=header> <%= mat(:user_datum, :when_to_buy) %></th>
+                <th class=header> <%= mat(:user_datum, :budget) %></th>
+                <th class=header> <%= mat(:user_datum, :brand) %></th>
+                <th class=header> <%= mat(:user_datum, :created_at) %></th>
+                <th class="header list-row-action-header"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @user_data.each do |user_datum| %>
+        <tr class=list-row>
+          <td class="list-column list-selectable">
+            <%= check_box_tag 'user_datum_ids[]', :value => user_datum.id, :class => 'list-selectable-checkbox' %>
+           </td>
+          <td class=list-column> <%= user_datum.id %> </td>
+          <td class=list-column> <%= user_datum.user_id %> </td>
+          <td class=list-column> <%= user_datum.hash_id %> </td>
+          <td class=list-column> <%= user_datum.sex %> </td>
+          <td class=list-column> <%= user_datum.age %> </td>
+          <td class=list-column> <%= user_datum.city %> </td>
+          <td class=list-column> <%= user_datum.marry %> </td>
+          <td class=list-column> <%= user_datum.salary %> </td>
+          <td class=list-column> <%= user_datum.when_to_buy %> </td>
+          <td class=list-column> <%= user_datum.budget %> </td>
+          <td class=list-column> <%= user_datum.brand %> </td>
+          <td class=list-column> <%= user_datum.created_at %> </td>
+          <td class="list-column list-row-action">
+            <div class='list-row-action-wrapper'>
+               <%= link_to tag_icon(:edit), :href => url(:user_data, :edit, :id => user_datum.id), :rel => :tooltip, :title => "#{pat(:edit)} user_datum", :class => 'list-row-action-wrapper-link' %>
+               <%= link_to tag_icon('trash-o'), :rel => :tooltip, :title => "#{pat(:delete)} user_datum", :class => 'list-row-action-delete-one list-row-action-wrapper-link' %>
+               <div class="popover list-row-action-popover-delete-one left">
+                 <div class=arrow> </div>
+                 <h3 class=popover-title><%= pat(:delete, :model => "user_datum") %></h3>
+                 <div class=popover-content>
+                   <% form_tag url(:user_data, :destroy, :id => user_datum.id), :method => :delete do %>
+                     <%= submit_tag pat(:delete), :class =>'list-row-action-popover-delete-one-btn btn btn-danger btn-small' %>
+                     <div class="btn btn-default btn-small cancel"><%= pat(:cancel) %></div>
+                   <% end %>
+                 </div>
+               </div>
+             </div>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

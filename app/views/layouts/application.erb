@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <meta name=viewport content='width=device-width,initial-scale=1' />
+    <link href=https://cdn.bootcss.com rel=dns-prefetch>
+    <link href=https://api.bootcdn.cn rel=dns-prefetch>
+    <link href=https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css rel=stylesheet>
+    <link href=https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css rel=stylesheet>
+    <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src=https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js></script>
+
+    <script src=https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js></script>
+    <script src="https://cdn.bootcss.com/jquery-validate/1.17.0/jquery.validate.min.js"></script>
+
+    <title>驾享链</title>
+    <style>
+      .header {
+        padding-top: 20px;
+        padding-bottom: 20px;
+        margin-bottom: 20 px;
+        color: inherit;
+        background-color: #eee;
+      }
+
+    </style>
+  </head>
+  <body>
+    
+
+
+  <header class="site-header">
+   <div class="container jumbotron header">
+    <div class="row">
+     <div class="col-xs-12">
+      <h2>驾享链<h2>
+      <p>全国首个驾培行业区块链<br>
+      <small >内部测试，请勿外传</small>
+     </div>
+    </div>
+   </div>
+
+   <% unless @login_signup_page %>
+  <div class="container">
+    <div class="list-group packages" id="login-box">
+
+   <% unless current_account %>
+  您还未登录，请<a href="/login" class="btn btn-success btn-sm">登录</a>或 <a href="/signup" class="btn btn-info btn-sm">注册</a>
+   <% end %>
+    </div>
+  </div>
+  <% end %>
+
+
+
+  <main class="packages-list-container" id="all-packages">
+
+  <%= yield %>
+
+
+  </main>
+  <br><br>
+   <footer class="row text-center">驾享链 (C) 2018</footer>
+
+    
+  
+  </body>
+
+  
+
+</html>
