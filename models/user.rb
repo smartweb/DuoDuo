@@ -79,7 +79,7 @@ class User
   end
 
   def mobile_mark
-    mobile.to_s[0,3] + "****" + mobile.to_s[6,4]
+    mobile.to_s[0,3] + "****" + mobile.to_s[7,4]
   end
 
   # 原力排名
