@@ -103,6 +103,8 @@ DuoChain::App.controllers :base do
   get :invite, :map => '/invite' do
     redirect url(:base, :login) unless current_account
 
+    @share_url = "http://139.162.124.143:9000/signup?inviter_id=#{current_account.id}"
+    
     render 'invite'
   end
 
