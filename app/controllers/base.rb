@@ -108,4 +108,9 @@ DuoChain::App.controllers :base do
     render 'invite'
   end
 
+  get :mine, :map => '101mine' do
+    MineLog.daily_mine
+    '101'
+  end
+
 end
