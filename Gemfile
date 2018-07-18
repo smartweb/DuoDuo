@@ -33,7 +33,6 @@ gem 'puma'
 
 # Padrino Stable Gem
 gem 'padrino', '0.14.1.1'
-
 # Or Padrino Edge
 # gem 'padrino', :github => 'padrino/padrino-framework'
 
