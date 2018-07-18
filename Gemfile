@@ -35,6 +35,7 @@ gem 'puma'
 gem 'padrino', '0.14.1.1'
 
 gem 'mina-puma', require: false
+gem 'whenever', require: false
 # Hello Mina
 
 # Or Padrino Edge

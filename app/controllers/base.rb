@@ -14,9 +14,7 @@ DuoChain::App.controllers :base do
   post :login, :map => '/login' do
     mobile    = params[:mobile].to_s
     password  = params[:password].to_s
-    puts "====================="
-    puts "Hello #{params}"
-    puts "====================="
+
     return "请输入手机号和密码" unless (mobile.present? || password.present?)
     account = User.authenticate(mobile, password)
     return "密码错误" if account.nil?

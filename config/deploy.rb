@@ -10,6 +10,15 @@ require 'mina/puma'
 #   repository   - Git repo to clone from. (needed by mina/git)
 #   branch       - Branch name to deploy. (needed by mina/git)
 
+# 命令
+# mina puma:phased_restart  # Restart puma (using phased restart)
+# mina puma:hard_restart    # Restart puma (using stop, then start)
+# mina puma:restart         # Restart puma (using pumactl)
+# mina puma:start           # Start puma
+# mina puma:stop            # Stop puma
+# mina puma:status          # Get status
+
+
 set :application_name, 'DuoChain'
 set :domain, '139.162.124.143'
 set :deploy_to, '/www/DuoDuo'
@@ -18,6 +27,8 @@ set :branch, 'master'
 
 set :user, 'root'
 set :password, 'LJjX9CWrkQbv'
+
+
 # Optional settings:
 #   set :user, 'foobar'          # Username in the server to SSH to.
 #   set :port, '30000'           # SSH port number.
@@ -36,6 +47,7 @@ task :remote_environment do
   # Be sure to commit your .ruby-version or .rbenv-version to your repository.
   # invoke :'rbenv:load'
 
+  set :puma_port, '8000'
   # For those using RVM, use this to load an RVM version@gemset.
   # invoke :'rvm:use', 'ruby-1.9.3-p125@default'
 end
@@ -62,7 +74,7 @@ task :deploy do
 
     on :launch do
       invoke :'puma:phased_restart'
-      
+
       in_path(fetch(:current_path)) do
         command %{mkdir -p tmp/}
         command %{touch tmp/restart.txt}

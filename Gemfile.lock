@@ -11,6 +11,7 @@ GEM
     bcrypt (3.1.11)
     bcrypt-ruby (3.1.5)
       bcrypt (>= 3.1.3)
+    chronic (0.10.2)
     concurrent-ruby (1.0.5)
     data_objects (0.10.17)
       addressable (~> 2.1)
@@ -50,12 +51,19 @@ GEM
     mail (2.6.6)
       mime-types (>= 1.16, < 4)
     mime-types (2.99.3)
+    mina (1.2.3)
+      open4 (~> 1.3.4)
+      rake
+    mina-puma (1.1.0)
+      mina (~> 1.2.0)
+      puma (>= 2.13)
     minitest (5.10.3)
     moneta (0.8.1)
     multi_json (1.12.2)
     mustermann (1.0.1)
     mustermann19 (0.4.4)
       enumerable-lazy
+    open4 (1.3.4)
     padrino (0.14.1.1)
       padrino-admin (= 0.14.1.1)
       padrino-cache (= 0.14.1.1)
@@ -107,6 +115,8 @@ GEM
     tzinfo (1.2.3)
       thread_safe (~> 0.1)
     uuidtools (2.1.5)
+    whenever (0.10.0)
+      chronic (>= 0.6.3)
 
 PLATFORMS
   ruby
@@ -123,9 +133,11 @@ DEPENDENCIES
   dm-types
   dm-validations
   erubi (~> 1.6)
+  mina-puma
   padrino (= 0.14.1.1)
   puma
   rake
+  whenever
 
 BUNDLED WITH
    1.15.4
